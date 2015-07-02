@@ -186,6 +186,6 @@ class InfinitePagingView: UIView, UIScrollViewDelegate {
         } else if currentPageIndex >= pageViews.count {
             currentPageIndex = 0
         }
-            delegate?.pagingView(self, didEndDecelerating: innerScrollView, atPageIndex: currentPageIndex)
-        }
+        delegate?.pagingView(self, didEndDecelerating: innerScrollView, atPageIndex: currentPageIndex)
+    }
 }

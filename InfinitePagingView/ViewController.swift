@@ -12,24 +12,20 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let test = UIView(frame: CGRect(x: 5, y: 0, width: self.view.bounds.width - 10, height: self.view.bounds.height))
-        test.backgroundColor = UIColor.redColor()
-        let test1 = UIView(frame: CGRect(x: 5, y: 0, width: self.view.bounds.width - 10, height: self.view.bounds.height))
-        test1.backgroundColor = UIColor.yellowColor()
-        let test2 = UIView(frame: CGRect(x: 5, y: 0, width: self.view.bounds.width - 10, height: self.view.bounds.height))
-        test2.backgroundColor = UIColor.blackColor()
-        let test3 = UIView(frame: CGRect(x: 5, y: 0, width: self.view.bounds.width - 10, height: self.view.bounds.height))
-        test3.backgroundColor = UIColor.blueColor()
-        let test4 = UIView(frame: CGRect(x: 5, y: 0, width: self.view.bounds.width - 10, height: self.view.bounds.height))
-        test4.backgroundColor = UIColor.greenColor()
         let pagingView = InfinitePagingView(frame: self.view.bounds)
-        pagingView.addPageView(test)
-        pagingView.addPageView(test1)
-        pagingView.addPageView(test2)
-        pagingView.addPageView(test3)
-        pagingView.addPageView(test4)
-        self.view.addSubview(pagingView)
+        for i in 0..<5 {
+            let view = UIView(frame: CGRect(x: 5, y: 0, width: self.view.bounds.width - 10, height: self.view.bounds.height))
+            view.backgroundColor = UIColor.blueColor()
+            let label = UILabel()
+            label.frame.size = CGSize(width: 100, height: 20)
+            label.text = "\(i)"
+            label.textAlignment = .Center
+            label.center = view.center
+            view.addSubview(label)
+            pagingView.addPageView(view)
+        }
         // Do any additional setup after loading the view, typically from a nib.
+        self.view.addSubview(pagingView)
     }
 
     override func didReceiveMemoryWarning() {
